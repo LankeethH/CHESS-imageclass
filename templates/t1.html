@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-image: url('{{ url_for("static", filename="background.jpg") }}');
+      background-size: cover; 
+      background-position: center; 
+      height: 100vh;
+      margin: 0; 
+      font-family: 'Arial', sans-serif; 
+      color: #ffffff; 
+      font-size: 26px;
+    }
+
+    h1 {
+      color: #ffc107; 
+      text-align: center;
+      margin-top: 50px; 
+    }
+
+    form {
+      max-width: 400px; /* Set a maximum width for the form */
+      margin: 0 auto; /* Center the form horizontally */
+      margin-top: 20px; /* Add some top margin */
+      padding: 20px; /* Add padding to the form */
+      background-color: #ffffff; /* Set a white background for the form */
+      border-radius: 8px; /* Add rounded corners to the form */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    }
+
+    input[type="file"] {
+      width: 100%; /* Make the file input span the full width of the form */
+      margin-bottom: 15px; /* Add some bottom margin to the file input */
+      padding: 10px; /* Add padding to the file input */
+      box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    input[type="submit"] {
+      background-color: #007bff; /* Set a blue background color for the submit button */
+      color: #ffffff; /* Set white text color for the submit button */
+      padding: 10px 15px; /* Add padding to the submit button */
+      border: none; /* Remove the button border */
+      border-radius: 4px; /* Add rounded corners to the submit button */
+      cursor: pointer; /* Change cursor to a pointer on hover */
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+  </style>
+  <title>Chess Pieces Classification</title>
+</head>
+<body>
+
+  <h1>Chess Pieces Classification</h1>
+  <form method="post" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="photo" class="form-control" autocomplete="off" required>
+    <input type="submit" value="Upload">
+  </form>
+
+</body>
+</html>

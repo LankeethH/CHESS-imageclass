@@ -1,0 +1,43 @@
+val=np.argmax(model.predict(img))
+
+
+array1=np.sort(model.predict(img))
+
+pieces = ["Queen","Rook","Bishop","Knight","Pawn"]
+
+
+
+
+
+<html>
+    <body>
+        <img src="{photo_url}" width="224" height="224"><br>
+        <h1>{pieces[val]}</h1>
+
+        <table border="1">
+            <tr>
+                <td>{array1[0]}</td>
+                <td>Row 1, Col 2</td>
+            </tr>
+            <tr>
+                <td>{array1[1]}</td>
+                <td>Row 2, Col 2</td>
+            </tr>
+            <tr>
+                <td>{array1[2]}</td>
+                <td>Row 3, Col 2</td>
+            </tr>
+            <tr>
+                <td>{array1[3]}</td>
+                <td>Row 4, Col 2</td>
+            </tr>
+            <tr>
+                <td>{array1[4]}1</td>
+                <td>Row 5, Col 2</td>
+            </tr>
+        </table>
+
+
+
+    </body>
+</html>
