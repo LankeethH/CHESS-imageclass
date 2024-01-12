@@ -64,9 +64,9 @@ def upload():
         sorted.reverse()
 
         
-        rounded_list = [round(value, 2) for value in sorted]
+        percentage_list=  [value * 100 for value in sorted]
         
-        percentage_list = [value * 100 for value in rounded_list]
+        rounded_list  = [round(value, 1) for value in  percentage_list]
 
 
         pieces = ["Queen","Rook","Bishop","Knight","Pawn"]
@@ -97,15 +97,27 @@ def upload():
 
 
         return f'<html><body> \
-        <style>body{{\
-        background-image: url({ url_for("static", filename="background.jpg") }); background-size: cover; background-position: center; height: 100vh; margin: 0; font-family: \'Arial\', sans-serif; font-size: 26px; color: #FF0000; }} h1 {{ color: #ffc107; text-align: center; margin-top: 50px; }}</style>\
-        <center>\
-                <h1>Chess Pieces Classification</h1>\
-        <img src={photo_url} width=224,height=224>\
-        <br><h2>{pieces[armax]}</h2><br>\
-        <table border="1" style="font-size: 22px"><tr><th>Piece</th><th>Probabilty(%)</th></tr></tr><tr><td>{setpieces[0]}</td><td>{percentage_list[0]}</td></tr><tr><td>{setpieces[1]}</td><td>{percentage_list[1]}</td></tr><tr><td>{setpieces[2]}</td><td>{percentage_list[2]}</td></tr><tr><td>{setpieces[3]}</td><td>{percentage_list[3]}</td></tr><tr><td>{setpieces[4]}</td><td>{percentage_list[4]}</td></tr></table>\
-        </center>\
-        </body></html>' 
+<style>body{{\
+background-image: url({ url_for("static", filename="background.jpg") }); background-size: cover; background-position: center; height: 100vh; margin: 0; font-family: \'Arial\', sans-serif; font-size: 26px; color: #000000; }} h1 {{ color: #ffc107; text-align: center; margin-top: 50px; }} \
+.white-div {{ background-color: #ffffff; padding: 7px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 20px; max-width: 400px; margin: 5 auto; }} \
+</style>\
+<center>\
+<h1>Chess Pieces Classification</h1>\
+<img src={photo_url} width=224,height=224>\
+<div class="white-div"> \
+<h2>{pieces[armax]}</h2>\
+<table border="2" padding="7px" cellpadding="10" style="font-size: 18px; width: 100%; text-align: center;">\
+<tr style="background-color: #007bff; color: #ffffff;"><th>Piece</th><th>Matching Percentage (%)</th></tr>\
+<tr><td>{setpieces[0]}</td><td>{rounded_list[0]}</td></tr>\
+<tr><td>{setpieces[1]}</td><td>{rounded_list[1]}</td></tr>\
+<tr><td>{setpieces[2]}</td><td>{rounded_list[2]}</td></tr>\
+<tr><td>{setpieces[3]}</td><td>{rounded_list[3]}</td></tr>\
+<tr><td>{setpieces[4]}</td><td>{rounded_list[4]}</td></tr>\
+</table>\
+</div> \
+</center>\
+</body></html>'
+
 
 
 
